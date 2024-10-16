@@ -24,17 +24,17 @@ document.getElementById('lotteryBtn').addEventListener('click', function() {
     const codeInput = document.getElementById('codeInput').value;
 
     // 达达狐校验码限制
-    if (codeInput === '达达狐') {
+    if (codeInput === 'ddh') {
         const todayTimesUsed = parseInt(localStorage.getItem('dadaFoxTimesUsed') || 0);
         if (isDadaFoxUsedToday && todayTimesUsed >= dailyLimit) {
-            alert('今日已达到达达狐抽奖限制！');
+            alert('今日已达到ddh抽奖限制！');
             return;
         } else {
             isDadaFoxUsedToday = true;
             localStorage.setItem('dadaFoxUsedDate', currentDate);
             localStorage.setItem('dadaFoxTimesUsed', todayTimesUsed + 1);
         }
-    } else if (codeInput !== '大闸蟹') {
+    } else if (codeInput !== 'xcb') {
         alert('无效校验码！');
         return;
     }
@@ -43,10 +43,10 @@ document.getElementById('lotteryBtn').addEventListener('click', function() {
     const randomAmount = (Math.random() * (maxAmount - minAmount) + minAmount).toFixed(2);
     document.getElementById('lotteryAmount').textContent = randomAmount;
     // 累计金额
-    if (codeInput === '达达狐') {
+    if (codeInput === 'ddh') {
         totalDadaFoxAmount += parseFloat(randomAmount);
         document.getElementById('dadaFoxTotal').textContent = totalDadaFoxAmount.toFixed(2);
-    } else if (codeInput === '大闸蟹') {
+    } else if (codeInput === 'xcb') {
         totalCrabAmount += parseFloat(randomAmount);
         document.getElementById('crabTotal').textContent = totalCrabAmount.toFixed(2);
     }
@@ -82,7 +82,7 @@ document.getElementById('closeSettingsModal').addEventListener('click', function
 document.getElementById('resetDadaFoxBtn').addEventListener('click', function() {
     localStorage.removeItem('dadaFoxTimesUsed');
     isDadaFoxUsedToday = false;
-    alert('达达狐当日抽奖次数已重置！');
+    alert('ddh当日抽奖次数已重置！');
 });
 
 // 设置达达狐每日限制抽奖次数
@@ -90,7 +90,7 @@ document.getElementById('setDadaFoxLimitBtn').addEventListener('click', function
     const limit = parseInt(document.getElementById('dadaFoxLimit').value);
     if (limit > 0) {
         dailyLimit = limit;
-        alert('达达狐每日限制抽奖次数已设置为 ' + limit);
+        alert('ddh每日限制抽奖次数已设置为 ' + limit);
     } else {
         alert('请输入有效的抽奖次数！');
     }
