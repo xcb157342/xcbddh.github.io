@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>达达狐的打卡奖励</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="date-display" id="dateDisplay"></div> <!-- 左上角显示日期 -->
+    <div class="code-display" id="codeDisplay"></div> <!-- 右上角显示校验码和累计金额 -->
+    
+    <div class="background-image"></div> <!-- 背景图片加模糊处理 -->
+
+    <!-- 红包飘落效果容器 -->
+    <div class="red-packet-container"></div>
+
+    <div class="content">
+        <h1>达达狐的打卡奖励</h1>
+        <input type="text" id="codeInput" placeholder="请输入校验码"> <!-- 校验码输入框 -->
+        <button id="lotteryBtn">点击抽奖</button>
+        <div class="result">
+            <span id="lotteryAmount">0.00</span>
+        </div>
+    </div>
+
+    <!-- 管理员模式入口 -->
+    <div class="admin-icon" id="adminIcon">Admin</div>
+
+    <!-- 管理员密码输入弹窗 -->
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <span class="close" id="closeAdminModal">&times;</span>
+            <h2>管理员登录</h2>
+            <input type="password" id="adminPassword" placeholder="请输入管理员密码">
+            <button id="loginAdminBtn">登录</button>
+        </div>
+    </div>
+
+    <!-- 管理员设置界面 -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <span class="close" id="closeSettingsModal">&times;</span>
+            <h2>管理员设置</h2>
+            <button id="resetDadaFoxBtn">重置达达狐当日抽奖次数</button>
+            <input type="number" id="dadaFoxLimit" placeholder="设置达达狐每日限制次数">
+            <button id="setDadaFoxLimitBtn">设置限制次数</button>
+            <input type="number" id="minAmount" placeholder="设置抽奖最低金额">
+            <input type="number" id="maxAmount" placeholder="设置抽奖最高金额">
+            <button id="setAmountRangeBtn">设置金额范围</button>
+            <p>达达狐累计抽奖金额: <span id="dadaFoxTotal">0.00</span></p>
+            <p>大闸蟹累计抽奖金额: <span id="crabTotal">0.00</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
